@@ -1,0 +1,6 @@
+[submodule "lib/lsm6dsr-rpl4-lib"]
+	path = lib/lsm6dsr-rpl4-lib
+	url = https://github.com/yutatech/lsm6dsr-rpl4-lib.git
+[submodule "lib/RPL4"]
+	path = lib/RPL4
+	url = https://github.com/yutatech/RPL4.git
