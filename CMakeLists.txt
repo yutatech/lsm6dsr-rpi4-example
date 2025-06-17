@@ -4,6 +4,8 @@ project(lsm6dsr_rpl4_example)
 file(GLOB SRCS src/*.c*)
 add_executable(${PROJECT_NAME} ${SRCS})
 
+set(CMAKE_BUILD_TYPE Debug)
+
 target_include_directories(${PROJECT_NAME} PUBLIC
     include
 )
