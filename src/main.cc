@@ -50,18 +50,20 @@ int main() {
 
   LSM6DSR lsm6dsr(spi, rpl::Spi::ChipSelect::kChipSelect1);
   lsm6dsr.Init();
+  uint8_t data = 0b10000001;
+  // lsm6dsr.WriteRegister(Register::CTRL3_C, &data);  // 104Hz, 2g
   lsm6dsr.WriteI3cEnabled(LSM6DSR::EnableState::kDisabled);
-  lsm6dsr.WriteAutoIncrementEnabled(LSM6DSR::EnableState::kEnabled);
-  lsm6dsr.WriteGyroDataRate(LSM6DSR::GyroDataRate::k6660Hz);
-  lsm6dsr.WriteAccDataRate(LSM6DSR::AccelDataRate::k6660Hz);
-  lsm6dsr.WriteGyroFullScale(LSM6DSR::GyroFullScale::k2000dps);
-  lsm6dsr.ConfigureGyroSensitivity(LSM6DSR::GyroFullScale::k2000dps);
-  lsm6dsr.WriteAccFullScale(LSM6DSR::AccelFullScale::k16g);
-  lsm6dsr.ConfigureAccSensitivity(LSM6DSR::AccelFullScale::k16g);
+  // lsm6dsr.WriteAutoIncrementEnabled(LSM6DSR::EnableState::kEnabled);
+  // lsm6dsr.WriteGyroDataRate(LSM6DSR::GyroDataRate::k6660Hz);
+  // lsm6dsr.WriteAccDataRate(LSM6DSR::AccelDataRate::k6660Hz);
+  // lsm6dsr.WriteGyroFullScale(LSM6DSR::GyroFullScale::k2000dps);
+  // lsm6dsr.ConfigureGyroSensitivity(LSM6DSR::GyroFullScale::k2000dps);
+  // lsm6dsr.WriteAccFullScale(LSM6DSR::AccelFullScale::k16g);
+  // lsm6dsr.ConfigureAccSensitivity(LSM6DSR::AccelFullScale::k16g);
   std::this_thread::sleep_for(100ms);  // Wait for SPI setup
 
   lsm6dsr.WhoAmI();
-  // return 0;
+  return 0;
 
   float gyro_x, gyro_y, gyro_z;
   float acc_x, acc_y, acc_z;
