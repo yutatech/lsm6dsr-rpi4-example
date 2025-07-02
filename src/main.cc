@@ -41,11 +41,11 @@ int main() {
   SpiSetup(spi);
 
   LSM6DSR lsm6dsr(spi, rpl::Spi::ChipSelect::kChipSelect1, gpio);
-  lsm6dsr.Init();
   lsm6dsr.ResetMemory();
   std::this_thread::sleep_for(15ms);
   lsm6dsr.RebootDevice();
   std::this_thread::sleep_for(50us);
+  lsm6dsr.Init();
   lsm6dsr.WriteGyroDataRate(LSM6DSR::GyroDataRate::k6660Hz);
   lsm6dsr.WriteAccDataRate(LSM6DSR::AccelDataRate::k6660Hz);
   lsm6dsr.WriteGyroFullScale(LSM6DSR::GyroFullScale::k1000dps);
